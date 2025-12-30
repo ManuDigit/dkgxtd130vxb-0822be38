@@ -41,8 +41,8 @@ const Hero = () => {
                 Генерирайте два персонализирани шаблона – A5 плакат и A4 лист с 9 мини карти – за 30 секунди. Безплатно завинаги, без договори и без кредитна карта.
               </p>
 
-              {/* 3 Checkmarks */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+              {/* 2 Checkmarks */}
+              <div className="flex flex-wrap gap-6 mb-8">
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
                     <Check className="w-3 h-3 text-primary" />
@@ -54,12 +54,6 @@ const Hero = () => {
                     <Check className="w-3 h-3 text-primary" />
                   </div>
                   <span className="text-sm text-foreground">14-дневен тест</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
-                    <Check className="w-3 h-3 text-primary" />
-                  </div>
-                  <span className="text-sm text-foreground">BG · EN · FR</span>
                 </div>
               </div>
 
