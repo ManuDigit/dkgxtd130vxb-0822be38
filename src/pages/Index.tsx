@@ -5,7 +5,7 @@ import Footer from "@/components/landing/Footer";
 
 const Index = () => {
   // Replace with your FluentForms embed URL when ready
-  const formEmbedUrl = undefined; // e.g., "https://yoursite.com/fluentform-embed"
+  const formEmbedUrl = "https://otzivipro.bg/fr/test-qr/";
 
   return (
     <div className="min-h-screen bg-background">
