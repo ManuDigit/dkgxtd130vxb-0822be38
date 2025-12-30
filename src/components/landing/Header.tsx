@@ -3,7 +3,7 @@ const Header = () => {
     <header className="py-6 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="flex justify-center lg:justify-start">
-          <div className="bg-white/50 backdrop-blur-md rounded-full px-6 py-2">
+          <div className="bg-white/60 backdrop-blur-md rounded-full px-6 py-2">
             <img
               src="https://otzivipro.b-cdn.net/logo/klientski-otzivi-balgaria.png"
               alt="OtziviPro - Клиентски отзиви България"
