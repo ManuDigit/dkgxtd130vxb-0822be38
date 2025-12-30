@@ -67,9 +67,7 @@ const Hero = () => {
 
               {/* Anchor link text */}
               <p className="mt-6 text-sm text-muted-foreground text-center sm:text-left">
-                <a href="#qr-demo-form" className="hover:text-foreground transition-colors">
-                  Безплатно завинаги · Без ангажимент · 14-дневен тест на премиум функциите
-                </a>
+                Безплатно завинаги · Без ангажимент
               </p>
             </div>
           </div>
