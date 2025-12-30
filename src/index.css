@@ -2,79 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-/* OtziviPro.bg Design System - Slate + Emerald Theme
+/* OtziviPro.bg Design System - Navy + Coral/Orange Theme
+   Glassmorphism Premium SaaS Design
    All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Slate + Emerald Theme - Using dark as default for this landing page */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    /* Navy Dark Theme */
+    --background: 210 68% 10%;
+    --foreground: 226 100% 97%;
 
-    --card: 217 33% 17%;
-    --card-foreground: 210 40% 98%;
+    /* Card glassmorphism */
+    --card: 210 50% 12%;
+    --card-foreground: 226 100% 97%;
 
-    --popover: 217 33% 17%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 50% 12%;
+    --popover-foreground: 226 100% 97%;
 
-    /* Emerald as primary */
-    --primary: 160 84% 39%;
-    --primary-foreground: 210 40% 98%;
+    /* Coral/Pink as primary */
+    --primary: 340 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary - Yellow/Gold */
+    --secondary: 48 96% 53%;
+    --secondary-foreground: 210 68% 10%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 210 50% 15%;
+    --muted-foreground: 222 30% 74%;
 
-    --accent: 160 84% 39%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 340 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 25%;
-    --input: 217 33% 25%;
-    --ring: 160 84% 39%;
+    --border: 210 30% 20%;
+    --input: 210 30% 20%;
+    --ring: 340 100% 50%;
 
     --radius: 0.75rem;
 
     /* Custom tokens for landing page */
-    --hero-gradient-start: 222 47% 8%;
-    --hero-gradient-end: 222 47% 14%;
-    --glow: 160 84% 39%;
-    --stat-bg: 217 33% 14%;
+    --brand-primary: 340 100% 50%;
+    --brand-secondary: 48 96% 53%;
+    --text-light: 226 100% 97%;
+    --text-muted: 222 30% 74%;
+    --glass-bg: 0 0% 100%;
+    --glass-border: 0 0% 100%;
+    --glow-primary: 340 100% 50%;
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    --background: 210 68% 10%;
+    --foreground: 226 100% 97%;
 
-    --card: 217 33% 17%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 50% 12%;
+    --card-foreground: 226 100% 97%;
 
-    --popover: 217 33% 17%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 50% 12%;
+    --popover-foreground: 226 100% 97%;
 
-    --primary: 160 84% 39%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 340 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 48 96% 53%;
+    --secondary-foreground: 210 68% 10%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 210 50% 15%;
+    --muted-foreground: 222 30% 74%;
 
-    --accent: 160 84% 39%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 340 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 30%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 25%;
-    --input: 217 33% 25%;
-    --ring: 160 84% 39%;
+    --border: 210 30% 20%;
+    --input: 210 30% 20%;
+    --ring: 340 100% 50%;
   }
 }
 
@@ -85,27 +91,120 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: radial-gradient(
+      circle at top,
+      hsl(210 60% 18%) 0%,
+      hsl(210 70% 6%) 55%,
+      hsl(220 60% 3%) 100%
+    );
+    min-height: 100vh;
   }
 }
 
 @layer components {
-  .hero-gradient {
-    background: linear-gradient(
-      180deg,
-      hsl(var(--hero-gradient-start)) 0%,
-      hsl(var(--hero-gradient-end)) 100%
-    );
+  /* Glass card effect */
+  .glass-card {
+    background: hsl(var(--glass-bg) / 0.04);
+    border: 1px solid hsl(var(--glass-border) / 0.08);
+    backdrop-filter: blur(18px);
+    border-radius: 20px;
+    box-shadow: 0 20px 45px hsl(220 60% 5% / 0.35);
   }
 
-  .glow-emerald {
-    box-shadow: 0 0 40px hsl(var(--glow) / 0.3),
-                0 0 80px hsl(var(--glow) / 0.1);
+  /* Hero glass card with more opacity */
+  .glass-card-hero {
+    background: hsl(210 70% 6% / 0.82);
+    border: 1px solid hsl(var(--glass-border) / 0.08);
+    backdrop-filter: blur(18px);
+    border-radius: 32px;
+    box-shadow: 0 20px 45px hsl(220 60% 5% / 0.35);
   }
 
+  /* CTA Button gradient */
+  .btn-cta {
+    background: linear-gradient(90deg, hsl(345 100% 59%) 0%, hsl(28 100% 55%) 100%);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px hsl(345 100% 59% / 0.35);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 30px 60px hsl(345 100% 59% / 0.4);
+  }
+
+  /* CTA Button red variant */
+  .btn-cta-red {
+    background: linear-gradient(90deg, hsl(350 89% 60%) 0%, hsl(347 77% 50%) 100%);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px hsl(350 89% 60% / 0.35);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .btn-cta-red:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 30px 60px hsl(350 89% 60% / 0.4);
+  }
+
+  /* Stat card */
   .stat-card {
-    @apply rounded-xl p-6 border border-border/50;
-    background: hsl(var(--stat-bg));
+    @apply glass-card p-6 text-center;
+  }
+
+  /* Primary glow effect */
+  .glow-primary {
+    box-shadow: 0 0 40px hsl(var(--glow-primary) / 0.3),
+                0 0 80px hsl(var(--glow-primary) / 0.1);
+  }
+
+  /* Video glow */
+  .glow-video {
+    box-shadow: 0 40px 120px hsl(0 0% 0% / 0.45);
+  }
+
+  /* Section title style */
+  .section-title {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold mb-4;
+    color: hsl(200 100% 94%);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* Badge number circle */
+  .badge-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: hsl(345 100% 59% / 0.18);
+    color: hsl(0 100% 87%);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+  }
+
+  /* Testimonial quote */
+  .testimonial-card {
+    @apply glass-card p-6 relative;
+  }
+
+  .testimonial-card::before {
+    content: "\201C";
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    font-size: 3rem;
+    color: hsl(0 0% 100% / 0.18);
+    font-family: Georgia, serif;
+    line-height: 1;
   }
 }
 
