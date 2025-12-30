@@ -110,6 +110,13 @@
     backdrop-filter: blur(18px);
     border-radius: 20px;
     box-shadow: 0 20px 45px hsl(220 60% 5% / 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px hsl(220 60% 5% / 0.4),
+                0 0 30px hsl(var(--glow-primary) / 0.15);
   }
 
   /* Hero glass card with more opacity */
