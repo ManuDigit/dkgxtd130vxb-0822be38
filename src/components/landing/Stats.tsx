@@ -11,17 +11,13 @@ const stats = [
     value: "0 лв",
     label: "Инвестиция – получавате готови A5 + A4 PDF файлове",
   },
-  {
-    value: "3 езика",
-    label: "BG · EN · FR за международни клиенти",
-  },
 ];
 
 const Stats = () => {
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           {stats.map((stat, index) => (
             <div
               key={index}
