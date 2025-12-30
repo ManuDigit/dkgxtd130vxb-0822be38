@@ -44,10 +44,10 @@ const Hero = () => {
               {/* Checkmark */}
               <div className="flex mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
-                    <Check className="w-4 h-4 text-primary" />
+                  <div className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Check className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="text-base font-medium text-foreground">Безплатно завинаги</span>
+                  <span className="text-lg font-semibold text-foreground">Безплатно завинаги</span>
                 </div>
               </div>
 
