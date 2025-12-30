@@ -2,18 +2,19 @@ import { Check } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="min-h-[95vh] flex items-center py-12 px-4">
+    <section className="py-16 lg:py-20 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-[55fr_45fr] gap-8 lg:gap-12 items-center">
           {/* Left Column - Video */}
           <div className="animate-fade-up order-2 lg:order-1">
             <div className="relative rounded-[32px] overflow-hidden glow-video">
-              <video
+            <video
                 autoPlay
                 loop
                 muted
                 playsInline
                 preload="auto"
+                poster="https://otzivipro.b-cdn.net/logo/video-cover.png"
                 className="w-full h-full object-cover aspect-[4/3] lg:aspect-auto lg:min-h-[500px]"
                 src="https://vz-e8c49872-87b.b-cdn.net/5fc0819b-d913-4ce2-8882-f4c59e8d2050/play_720p.mp4?v=2"
               />
