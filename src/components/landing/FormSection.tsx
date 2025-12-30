@@ -16,7 +16,7 @@ const FormSection = () => {
           {/* Embedded iframe from otzivipro.bg */}
           <div className="w-full rounded-xl overflow-hidden">
             <iframe
-              src="https://otzivipro.bg/fr/test-qr/"
+              src="https://otzivipro.bg/qr-generator/"
               className="w-full min-h-[600px] border-0"
               title="OtziviPro QR Demo Form"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
