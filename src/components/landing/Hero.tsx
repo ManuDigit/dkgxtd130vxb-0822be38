@@ -35,19 +35,16 @@ const Hero = ({ formEmbedUrl }: HeroProps) => {
             </div>
 
             {/* Video Section */}
-            <div className="relative rounded-xl overflow-hidden glow-emerald mb-8">
+            <div className="relative rounded-xl overflow-hidden glow-emerald mb-8 aspect-video bg-muted">
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full aspect-video object-cover"
-              >
-                <source
-                  src="https://vz-e8c49872-87b.b-cdn.net/5fc0819b-d913-4ce2-8882-f4c59e8d2050/play_720p.mp4"
-                  type="video/mp4"
-                />
-              </video>
+                preload="auto"
+                className="w-full h-full object-cover"
+                src="https://vz-e8c49872-87b.b-cdn.net/5fc0819b-d913-4ce2-8882-f4c59e8d2050/play_720p.mp4"
+              />
             </div>
           </div>
 
