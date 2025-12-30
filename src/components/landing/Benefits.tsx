@@ -11,11 +11,6 @@ const benefits = [
   },
   {
     number: "03",
-    title: "SEO & Tracking",
-    description: "UTM параметри, QR tracking и автоматизирани имейли ви показват кои локации носят най-много сканирания.",
-  },
-  {
-    number: "04",
     title: "Готов за печат",
     description: "Готов PDF пакет: A5 плакат плюс A4 лист с 9 мини карти – изтегляте, принтирате и поставяте за минути.",
   },
@@ -36,7 +31,7 @@ const Benefits = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
             <div
               key={index}
