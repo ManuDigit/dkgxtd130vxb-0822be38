@@ -24,7 +24,7 @@
     <meta name="twitter:site" content="@OtziviPro" />
     <meta name="twitter:image" content="https://otzivipro.b-cdn.net/logo/otzivi-bolgaria-reviews.jpg" />
 
-    <!-- Schema.org JSON-LD -->
+    <!-- Schema.org JSON-LD - SoftwareApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,14 +41,60 @@
       "provider": {
         "@type": "Organization",
         "name": "OtziviPro.bg",
-        "url": "https://otzivipro.bg",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "ул. Цар Асен № 11",
-          "addressLocality": "София",
-          "addressCountry": "BG"
-        }
+        "url": "https://otzivipro.bg"
       }
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD - LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "OtziviPro.bg",
+      "description": "Безплатен инструмент за генериране на QR кодове за събиране на Google Maps отзиви",
+      "url": "https://otzivipro.bg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Цар Асен № 11",
+        "addressLocality": "София",
+        "addressCountry": "BG"
+      },
+      "priceRange": "Безплатно"
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Безплатен ли е OtziviPro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, OtziviPro е 100% безплатен. Няма скрити такси, абонаменти или изисквания за кредитна карта."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как работи QR Kit генераторът?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Въведете вашия Google Maps URL, имейл и име на бизнеса. В рамките на 30 секунди получавате два PDF файла – A5 плакат и A4 лист с 9 мини карти, готови за печат."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Защо отзивите в Google Maps са важни?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "88% от потребителите четат отзиви преди да направят покупка. Повече положителни отзиви означават повече клиенти и по-добра видимост в Google."
+          }
+        }
+      ]
     }
     </script>
 
