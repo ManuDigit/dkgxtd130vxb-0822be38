@@ -88,7 +88,7 @@ const FormSection = () => {
       <div className="container mx-auto max-w-4xl">
         <div className="glass-card p-6 sm:p-8">
           {/* Title */}
-          <p className="text-lg sm:text-xl font-semibold uppercase tracking-wider text-secondary mb-3 text-center whitespace-nowrap">
+          <p className="text-base sm:text-lg font-semibold uppercase tracking-wider text-secondary mb-3 text-center">
             Получете своите персонализирани и печатаеми QR кодове БЕЗПЛАТНО
           </p>
 
