@@ -1,18 +1,25 @@
+import testimonialMaria from "@/assets/testimonial-maria.jpg";
+import testimonialIvan from "@/assets/testimonial-ivan.jpg";
+import testimonialSofia from "@/assets/testimonial-sofia.jpg";
+
 const testimonials = [
   {
-    quote: "Фризьорският ни салон събра 37 нови 5★ отзива за 12 дни. Клиентите обожават дизайна, а QR плаките изглеждат като premium реклама.",
-    author: "Мария Георгиева",
-    company: "Sofia Hair Lab",
+    quote: "Благодарение на otzivipro.bg успях да автоматизирам събирането на отзиви от клиентите си и значително да подобря онлайн репутацията си. Приложенията са лесни за интегриране, а използването на изкуствен интелект за отговаряне на отзивите ми спести ценно време. Сега сайтът ми се класира по-добре в търсачките, а продажбите ми се увеличиха с 25%.",
+    author: "Мария Д.",
+    company: "Онлайн магазин за мода",
+    image: testimonialMaria,
   },
   {
-    quote: "Внедрихме системата в три пекарни. A4 листът с 9 мини карти до касата ни донесе +62% повече запазвания в Google Maps.",
-    author: "Кирил Стоянов",
-    company: "Bread & Butter",
+    quote: "Като ресторантьор, получаването на положителни отзиви е от решаващо значение за привличането на клиенти. С otzivipro.bg успях да увелича броя на отзивите си и да ги споделям лесно в социалните мрежи. Тяхната система за събиране на отзиви е особено ефективна. Откакто използвам това решение, ресторантът ми се изкачи в онлайн класациите и забелязвам значително увеличение на броя на резервациите.",
+    author: "Иван М.",
+    company: "Ресторантьор",
+    image: testimonialIvan,
   },
   {
-    quote: "Без CRM интеграция ни беше трудно да следим кампаниите. Сега всичко влиза в n8n и FluentCRM автоматично.",
-    author: "Ивайло Димитров",
-    company: "Gastro Group",
+    quote: "otzivipro.bg промени начина, по който управлявам отзивите на клиентите си. Персонализираните отговори с едно кликване ми позволиха да обединя ангажирана общност около моята коучинг дейност. Не само че отзивите ми са предимно положителни, но и моето класиране в търсачките се подобри, което ми донесе нови клиенти. Това е просто и ефективно решение, което горещо препоръчвам.",
+    author: "София Л.",
+    company: "Треньор по личностно развитие",
+    image: testimonialSofia,
   },
 ];
 
@@ -26,7 +33,7 @@ const Testimonials = () => {
             Истински резултати от OtziviPro
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Реални обратни връзки от салони, пекарни и студиа, които вече внедриха комплекта.
+            Реални обратни връзки от бизнеси, които вече внедриха решението.
           </p>
         </div>
 
@@ -35,23 +42,30 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="testimonial-card pt-12 animate-fade-up"
+              className="testimonial-card animate-fade-up"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
+              {/* Author Avatar & Info */}
+              <div className="flex items-center gap-4 mb-6">
+                <img 
+                  src={testimonial.image} 
+                  alt={`${testimonial.author} - ${testimonial.company}`}
+                  className="w-16 h-16 rounded-full object-cover border-2 border-primary/30"
+                />
+                <div>
+                  <p className="font-semibold text-foreground">
+                    {testimonial.author}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {testimonial.company}
+                  </p>
+                </div>
+              </div>
+
               {/* Quote */}
-              <p className="text-foreground mb-6 leading-relaxed">
+              <p className="text-foreground/90 leading-relaxed text-sm">
                 „{testimonial.quote}"
               </p>
-
-              {/* Author */}
-              <div className="text-sm">
-                <span className="font-semibold text-foreground">
-                  — {testimonial.author}
-                </span>
-                <span className="text-muted-foreground">
-                  {" "}· {testimonial.company}
-                </span>
-              </div>
             </div>
           ))}
         </div>
