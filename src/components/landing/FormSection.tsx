@@ -50,9 +50,9 @@ const FormSection = () => {
       console.log("=== DIAGNOSTIC WEBHOOK ===");
       console.log("Payload object:", payload);
       console.log("JSON.stringify:", JSON.stringify(payload));
-      console.log("Sending to:", "https://n8n.otzivipro.bg/webhook/qr-generator");
+      console.log("Sending to:", "https://n8n.otzivipro.bg/webhook/qr-generator-v3");
       
-      const response = await fetch("https://n8n.otzivipro.bg/webhook/qr-generator", {
+      const response = await fetch("https://n8n.otzivipro.bg/webhook/qr-generator-v3", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
