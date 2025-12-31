@@ -4,6 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 
+type MessageType = "success" | "warning" | "error" | "loading";
+
+interface FormMessage {
+  type: MessageType;
+  text: string;
+}
+
 const FormSection = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -11,7 +18,7 @@ const FormSection = () => {
     email: "",
     business_name: "",
   });
-  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [message, setMessage] = useState<FormMessage | null>(null);
   const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +29,10 @@ const FormSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setMessage(null);
+    setMessage({
+      type: "loading",
+      text: "🔄 Генериране на вашия QR Kit...\n\nТова може да отнеме 10-15 секунди.\nМоля, не затваряйте прозореца."
+    });
 
     // Basic validation
     if (!formData.business_url || !formData.email || !formData.business_name) {
@@ -41,7 +51,7 @@ const FormSection = () => {
 
     try {
       const payload = {
-        business_url: formData.business_url.trim(),
+        google_business_url: formData.business_url.trim(),
         email: formData.email.trim(),
         business_name: formData.business_name.trim(),
         language: "bg",
@@ -50,9 +60,9 @@ const FormSection = () => {
       console.log("=== DIAGNOSTIC WEBHOOK ===");
       console.log("Payload object:", payload);
       console.log("JSON.stringify:", JSON.stringify(payload));
-      console.log("Sending to:", "https://n8n.otzivipro.bg/webhook/qr-generator-v3");
+      console.log("Sending to:", "https://n8n.otzivipro.bg/webhook/otzivipro-review");
       
-      const response = await fetch("https://n8n.otzivipro.bg/webhook/qr-generator-v3", {
+      const response = await fetch("https://n8n.otzivipro.bg/webhook/otzivipro-review", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,31 +76,59 @@ const FormSection = () => {
       const data = await response.json();
       console.log("Response data:", data);
 
-      if (response.ok && data.success) {
+      if (response.ok && data.success && data.data) {
+        // Succès - templates générés
         setMessage({
           type: "success",
-          text: data.message || "Честито! Вашият QR комплект е готов! Проверете електронната си поща в рамките на 30 секунди, за да откриете вашите персонализирани QR кодове, ключови елементи на вашата нова маркетингова стратегия!",
+          text: `✅ Вашият QR Kit е генериран успешно!\n\n📧 Проверете имейла си на ${data.data.recipient || formData.email}\n\nПолучихте:\n• 📄 A5 плакат (готов за печат)\n• 📄 A4 лист с 9 карти за изрязване\n\nФайловете са изпратени на вашия email.`,
         });
         toast({
-          title: "Успех!",
-          description: "Честито! Вашият QR комплект е готов!",
+          title: "✅ Готово!",
+          description: "Вашият QR Kit е изпратен на имейла ви!",
         });
         // Reset form
         setFormData({ business_url: "", email: "", business_name: "" });
+      } else if (data.duplicate) {
+        // Duplicate - déjà demandé récemment
+        setMessage({
+          type: "warning",
+          text: "⚠️ Вие вече сте направили заявка наскоро.\n\nЗа да избегнем дублиране, моля изчакайте 2 минути преди нова заявка за същия бизнес.",
+        });
+        toast({
+          title: "⚠️ Вече направена заявка",
+          description: "Моля, изчакайте 2 минути преди нова заявка.",
+          variant: "destructive",
+        });
       } else {
+        // Erreur générique
         setMessage({
           type: "error",
-          text: data.message || "Възникна грешка. Моля, опитайте отново.",
+          text: "❌ Грешка при генериране на QR Kit.\n\nМоля, проверете данните и опитайте отново.\nАко проблемът продължава, свържете се с поддръжката.",
         });
       }
     } catch (error) {
       console.error("Form submission error:", error);
       setMessage({
         type: "error",
-        text: "Грешка при изпращане. Моля, опитайте отново.",
+        text: "❌ Грешка в комуникацията със сървъра.\n\nМоля, проверете интернет връзката и опитайте отново.",
       });
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const getMessageStyles = (type: MessageType) => {
+    switch (type) {
+      case "success":
+        return "bg-green-500/20 text-green-400 border border-green-500/30";
+      case "warning":
+        return "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30";
+      case "error":
+        return "bg-red-500/20 text-red-400 border border-red-500/30";
+      case "loading":
+        return "bg-blue-500/20 text-blue-400 border border-blue-500/30";
+      default:
+        return "";
     }
   };
 
@@ -128,7 +166,8 @@ const FormSection = () => {
                 onChange={handleChange}
                 placeholder="https://maps.google.com/maps?cid=..."
                 required
-                className="bg-background/50 border-border/30 text-foreground placeholder:text-muted-foreground/60 h-12 text-base"
+                disabled={isLoading}
+                className="bg-background/50 border-border/30 text-foreground placeholder:text-muted-foreground/60 h-12 text-base disabled:opacity-50"
                 style={{ fontSize: "16px" }}
               />
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -163,7 +202,8 @@ const FormSection = () => {
                 onChange={handleChange}
                 placeholder="ivan@example.com"
                 required
-                className="bg-background/50 border-border/30 text-foreground placeholder:text-muted-foreground/60 h-12 text-base"
+                disabled={isLoading}
+                className="bg-background/50 border-border/30 text-foreground placeholder:text-muted-foreground/60 h-12 text-base disabled:opacity-50"
                 style={{ fontSize: "16px" }}
               />
             </div>
@@ -181,9 +221,10 @@ const FormSection = () => {
                 onChange={handleChange}
                 placeholder="Ресторант София"
                 required
+                disabled={isLoading}
                 minLength={2}
                 maxLength={100}
-                className="bg-background/50 border-border/30 text-foreground placeholder:text-muted-foreground/60 h-12 text-base"
+                className="bg-background/50 border-border/30 text-foreground placeholder:text-muted-foreground/60 h-12 text-base disabled:opacity-50"
                 style={{ fontSize: "16px" }}
               />
             </div>
@@ -195,12 +236,28 @@ const FormSection = () => {
             {message && (
               <div
                 id="form-message"
-                className={`p-4 rounded-xl text-center font-medium ${
-                  message.type === "success"
-                    ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                    : "bg-red-500/20 text-red-400 border border-red-500/30"
-                }`}
+                className={`p-4 rounded-xl text-center font-medium whitespace-pre-line ${getMessageStyles(message.type)}`}
               >
+                {message.type === "loading" && (
+                  <div className="flex justify-center mb-3">
+                    <svg className="animate-spin h-8 w-8" viewBox="0 0 24 24">
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        fill="none"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                  </div>
+                )}
                 {message.text}
               </div>
             )}
@@ -229,7 +286,7 @@ const FormSection = () => {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     />
                   </svg>
-                  Изпращане...
+                  Генериране...
                 </span>
               ) : (
                 "ПОЛУЧЕТЕ МОЯ КИТ QR"
