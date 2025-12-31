@@ -55,7 +55,7 @@ const Hero = () => {
               {/* CTA Button */}
               <a
                 href="#qr-demo-form"
-                className="btn-cta inline-block text-center w-full sm:w-auto text-lg"
+                className="btn-cta-yellow inline-block text-center w-full sm:w-auto text-lg"
               >
                 Генерирайте вашия Kit
               </a>
