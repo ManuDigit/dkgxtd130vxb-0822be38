@@ -92,7 +92,7 @@ const FormSection = () => {
             <p className="text-lg sm:text-xl font-semibold uppercase tracking-wider text-secondary">
               Получете своите персонализирани и печатаеми QR кодове
             </p>
-            <p className="text-2xl sm:text-3xl font-bold uppercase tracking-wider text-secondary mt-1">
+            <p className="text-2xl sm:text-3xl font-bold uppercase tracking-wider mt-1" style={{ color: '#FF0055' }}>
               БЕЗПЛАТНО
             </p>
           </div>
