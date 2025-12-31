@@ -40,20 +40,31 @@ const FormSection = () => {
     }
 
     try {
+      const payload = {
+        business_url: formData.business_url.trim(),
+        email: formData.email.trim(),
+        business_name: formData.business_name.trim(),
+        language: "bg",
+      };
+      
+      console.log("=== DIAGNOSTIC WEBHOOK ===");
+      console.log("Payload object:", payload);
+      console.log("JSON.stringify:", JSON.stringify(payload));
+      console.log("Sending to:", "https://n8n.otzivipro.bg/webhook/qr-generator");
+      
       const response = await fetch("https://n8n.otzivipro.bg/webhook/qr-generator", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          business_url: formData.business_url.trim(),
-          email: formData.email.trim(),
-          business_name: formData.business_name.trim(),
-          language: "bg",
-        }),
+        body: JSON.stringify(payload),
       });
 
+      console.log("Response status:", response.status);
+      console.log("Response headers:", Object.fromEntries(response.headers.entries()));
+      
       const data = await response.json();
+      console.log("Response data:", data);
 
       if (response.ok && data.success) {
         setMessage({
