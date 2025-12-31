@@ -160,6 +160,22 @@
     box-shadow: 0 30px 60px hsl(350 89% 60% / 0.4);
   }
 
+  /* CTA Button yellow variant */
+  .btn-cta-yellow {
+    background: linear-gradient(90deg, hsl(48 96% 53%) 0%, hsl(45 93% 47%) 100%);
+    color: hsl(210 68% 10%);
+    padding: 16px 32px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px hsl(48 96% 53% / 0.35);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .btn-cta-yellow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 30px 60px hsl(48 96% 53% / 0.45);
+  }
+
   /* Stat card */
   .stat-card {
     @apply glass-card p-6 text-center;
