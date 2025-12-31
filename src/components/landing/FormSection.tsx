@@ -76,6 +76,20 @@ const FormSection = () => {
       const data = await response.json();
       console.log("Response data:", data);
 
+      // Appel FluentCRM en arrière-plan (fire-and-forget, non-bloquant)
+      fetch('https://otzivipro.bg/wp-json/otzivipro/v1/create-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: payload.email,
+          business_name: payload.business_name,
+          google_business_url: payload.google_business_url
+        })
+      })
+        .then(res => res.json())
+        .then(result => console.log('✅ FluentCRM contact created:', result))
+        .catch(err => console.warn('⚠️ FluentCRM error (non-blocking):', err));
+
       if (response.ok && data.success && data.data) {
         // Succès - templates générés
         setMessage({
