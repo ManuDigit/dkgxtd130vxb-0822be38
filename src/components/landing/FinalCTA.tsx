@@ -10,7 +10,12 @@ const FinalCTA = () => {
         </p>
         <a
           href="#qr-demo-form"
-          className="btn-cta-red inline-block text-lg animate-fade-up-delay-2"
+          className="inline-block text-lg animate-fade-up-delay-2 px-8 py-4 rounded-xl font-semibold transition-all duration-200 hover:-translate-y-0.5"
+          style={{
+            backgroundColor: '#FACC14',
+            color: '#0f172a',
+            boxShadow: '0 20px 40px rgba(250, 204, 20, 0.35)'
+          }}
         >
           Стартирайте демото
         </a>
