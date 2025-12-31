@@ -2,12 +2,12 @@ const templates = [
   {
     image: "https://otzivipro.b-cdn.net/cards/template-a5-demo.png",
     label: "A5 плакат · готов за печат",
-    alt: "A5 плакат шаблон",
+    alt: "QR код за клиентско мнение A5",
   },
   {
     image: "https://otzivipro.b-cdn.net/cards/template-a4-demo.png",
     label: "A4 лист с 9 мини карти за изрязване",
-    alt: "A4 лист с мини карти",
+    alt: "QR код за клиентско мнение A4",
   },
 ];
 
