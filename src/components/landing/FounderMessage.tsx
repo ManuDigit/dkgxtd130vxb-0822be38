@@ -50,7 +50,7 @@ const FounderMessage = () => {
             >
               <video
                 ref={videoRef}
-                src="https://vz-e8c49872-87b.b-cdn.net/9a6d4f13-7f02-45bf-b6bc-4c54c21b6dc6/play_720p.mp4"
+                src="/videos/founder.mp4"
                 autoPlay
                 loop
                 muted={isMuted}
