@@ -32,7 +32,7 @@ const FounderMessage = () => {
   };
 
   const scrollToForm = () => {
-    const formSection = document.getElementById("form-section");
+    const formSection = document.getElementById("qr-demo-form");
     if (formSection) {
       formSection.scrollIntoView({ behavior: "smooth" });
     }
