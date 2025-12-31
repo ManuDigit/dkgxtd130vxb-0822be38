@@ -152,9 +152,9 @@ const FormSection = () => {
         <div className="glass-card p-6 sm:p-8">
           {/* Title */}
           <div className="text-center mb-3">
-            <p className="text-lg sm:text-xl font-semibold uppercase tracking-wider text-secondary">
+            <h2 className="text-lg sm:text-xl font-semibold uppercase tracking-wider text-secondary">
               Получете своите персонализирани и печатаеми QR кодове
-            </p>
+            </h2>
             <p className="text-2xl sm:text-3xl font-bold uppercase tracking-wider mt-1" style={{ color: '#FF0055' }}>
               БЕЗПЛАТНО
             </p>
