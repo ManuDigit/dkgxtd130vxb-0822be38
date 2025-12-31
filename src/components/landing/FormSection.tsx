@@ -115,8 +115,14 @@ const FormSection = () => {
                 className="bg-background/50 border-border/30 text-foreground placeholder:text-muted-foreground/60 h-12 text-base"
                 style={{ fontSize: "16px" }}
               />
-              <p className="text-xs text-muted-foreground">
-                Намерете го в Google Business Profile
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Отворете Google Maps и отидете на вашия бизнес профил. Потърсете бутона Споделяне{" "}
+                <img 
+                  src="/images/share-icon.png" 
+                  alt="Споделяне" 
+                  className="inline-block w-4 h-4 align-middle mx-0.5"
+                />{" "}
+                и го натиснете. Ще се отвори изскачащ прозорец. Кликнете върху Копирай линк, за да получите URL адреса. Поставете го тук.
               </p>
             </div>
 
