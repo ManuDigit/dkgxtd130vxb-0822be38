@@ -125,7 +125,7 @@ const FormSection = () => {
                   href="https://maps.google.com/maps/search/+Bulgaria/?entry=wc&hl=bg" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-secondary hover:underline"
+                  className="underline"
                 >
                   Отворете Google Maps
                 </a>{" "}
