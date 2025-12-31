@@ -63,22 +63,10 @@ const FormSection = () => {
       console.log("Response status:", response.status);
       console.log("Response headers:", Object.fromEntries(response.headers.entries()));
       
-      // Handle empty response body (content-length: 0)
-      const responseText = await response.text();
-      console.log("Response text:", responseText);
-      
-      let data = { success: false, message: "" };
-      if (responseText && responseText.trim()) {
-        try {
-          data = JSON.parse(responseText);
-        } catch (parseError) {
-          console.log("JSON parse error, treating as success if status 200");
-        }
-      }
+      const data = await response.json();
       console.log("Response data:", data);
 
-      // If status is 200, treat as success even if body is empty
-      if (response.ok) {
+      if (response.ok && data.success) {
         setMessage({
           type: "success",
           text: data.message || "Честито! Вашият QR комплект е готов! Проверете електронната си поща в рамките на 30 секунди, за да откриете вашите персонализирани QR кодове, ключови елементи на вашата нова маркетингова стратегия!",
