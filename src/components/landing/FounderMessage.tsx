@@ -14,10 +14,21 @@ const FounderMessage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(!isMuted);
-    }
+    const video = videoRef.current;
+    if (!video) return;
+
+    setIsMuted((prev) => {
+      const next = !prev;
+      video.muted = next;
+
+      if (!next) {
+        // Ensure audible playback once user explicitly interacts.
+        video.volume = 1;
+        void video.play().catch(() => {});
+      }
+
+      return next;
+    });
   };
 
   const scrollToForm = () => {
@@ -33,20 +44,27 @@ const FounderMessage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Video Column - Left */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-1">
-            <div className="relative w-full max-w-[280px] md:max-w-[320px] aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 group cursor-pointer" onClick={toggleMute}>
+            <div
+              className="relative w-full max-w-[280px] md:max-w-[320px] aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 group cursor-pointer"
+              onClick={toggleMute}
+            >
               <video
                 ref={videoRef}
                 src="https://vz-e8c49872-87b.b-cdn.net/59c8d15f-bfe6-4a00-80f2-ee5edf94ca56/play_720p.mp4"
                 autoPlay
                 loop
-                muted
+                muted={isMuted}
                 playsInline
+                preload="metadata"
                 className="w-full h-full object-cover"
                 aria-label="Видео съобщение от основателя на OtziviPro"
               />
               {/* Sound toggle button */}
               <button
-                onClick={toggleMute}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleMute();
+                }}
                 className="absolute bottom-4 right-4 p-3 bg-background/80 backdrop-blur-sm rounded-full shadow-lg transition-all hover:bg-background hover:scale-110"
                 aria-label={isMuted ? "Включи звука" : "Изключи звука"}
               >
