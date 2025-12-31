@@ -32,7 +32,7 @@ const FormSection = () => {
     }
 
     // URL validation for Google Maps
-    const urlPattern = /^https?:\/\/(maps\.google\.com|goo\.gl|www\.google\.com\/maps)/i;
+    const urlPattern = /^https?:\/\/(maps\.google\.com|goo\.gl|maps\.app\.goo\.gl|www\.google\.com\/maps)/i;
     if (!urlPattern.test(formData.business_url)) {
       setMessage({ type: "error", text: "Моля, въведете валиден Google Maps URL." });
       setIsLoading(false);
