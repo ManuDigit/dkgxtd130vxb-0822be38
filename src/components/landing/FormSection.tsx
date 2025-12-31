@@ -89,7 +89,7 @@ const FormSection = () => {
         <div className="glass-card p-6 sm:p-8">
           {/* Title */}
           <p className="text-sm font-semibold uppercase tracking-wider text-secondary mb-3 text-center">
-            Стартирайте демото и получете A5 + A4 шаблони
+            Получете своите персонализирани и печатаеми QR кодове БЕЗПЛАТНО
           </p>
 
           {/* Description */}
