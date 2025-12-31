@@ -88,9 +88,14 @@ const FormSection = () => {
       <div className="container mx-auto max-w-4xl">
         <div className="glass-card p-6 sm:p-8">
           {/* Title */}
-          <p className="text-base sm:text-lg font-semibold uppercase tracking-wider text-secondary mb-3 text-center">
-            Получете своите персонализирани и печатаеми QR кодове БЕЗПЛАТНО
-          </p>
+          <div className="text-center mb-3">
+            <p className="text-lg sm:text-xl font-semibold uppercase tracking-wider text-secondary">
+              Получете своите персонализирани и печатаеми QR кодове
+            </p>
+            <p className="text-2xl sm:text-3xl font-bold uppercase tracking-wider text-secondary mt-1">
+              БЕЗПЛАТНО
+            </p>
+          </div>
 
           {/* Description */}
           <p className="text-muted-foreground text-center mb-8">
@@ -116,7 +121,15 @@ const FormSection = () => {
                 style={{ fontSize: "16px" }}
               />
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Отворете Google Maps и отидете на вашия бизнес профил. Потърсете бутона Споделяне{" "}
+                <a 
+                  href="https://maps.google.com/maps/search/+Bulgaria/?entry=wc&hl=bg" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-secondary hover:underline"
+                >
+                  Отворете Google Maps
+                </a>{" "}
+                и отидете на вашия бизнес профил. Потърсете бутона Споделяне{" "}
                 <img 
                   src="/images/share-icon.png" 
                   alt="Споделяне" 
