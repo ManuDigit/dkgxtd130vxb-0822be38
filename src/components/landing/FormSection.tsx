@@ -58,11 +58,11 @@ const FormSection = () => {
       if (response.ok && data.success) {
         setMessage({
           type: "success",
-          text: data.message || "Вашият QR Kit е генериран успешно! Проверете имейла си.",
+          text: data.message || "Честито! Вашият QR комплект е готов! Проверете електронната си поща в рамките на 30 секунди, за да откриете вашите персонализирани QR кодове, ключови елементи на вашата нова маркетингова стратегия!",
         });
         toast({
           title: "Успех!",
-          description: "Вашият QR Kit е изпратен на имейла ви.",
+          description: "Честито! Вашият QR комплект е готов!",
         });
         // Reset form
         setFormData({ business_url: "", email: "", business_name: "" });
