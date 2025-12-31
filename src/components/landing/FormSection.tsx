@@ -266,7 +266,8 @@ const FormSection = () => {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full h-14 text-lg font-bold uppercase tracking-wider bg-secondary hover:bg-secondary/90 text-secondary-foreground transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              className="w-full h-14 text-lg font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              style={{ backgroundColor: '#FACC14', color: '#000000' }}
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">
