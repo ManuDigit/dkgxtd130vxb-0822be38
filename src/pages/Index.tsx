@@ -4,6 +4,7 @@ import FormSection from "@/components/landing/FormSection";
 import Stats from "@/components/landing/Stats";
 import Benefits from "@/components/landing/Benefits";
 import KitVisualization from "@/components/landing/KitVisualization";
+import Testimonials from "@/components/landing/Testimonials";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
 
@@ -16,8 +17,7 @@ const Index = () => {
       <Stats />
       <FormSection />
       <Benefits />
-      
-      
+      <Testimonials />
       <FinalCTA />
       <Footer />
     </div>
