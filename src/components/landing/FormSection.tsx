@@ -4,6 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 
+// Declare fbq for TypeScript
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
 type MessageType = "success" | "warning" | "error" | "loading";
 
 interface FormMessage {
@@ -92,6 +99,23 @@ const FormSection = () => {
 
       if (response.ok && data.success && data.data) {
         // Succès - templates générés
+        
+        // Track Lead event - form submitted successfully
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Lead', {
+            content_name: formData.business_name,
+            content_category: 'QR Kit Request'
+          });
+        }
+        
+        // Track CompleteRegistration - API returned success
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'CompleteRegistration', {
+            content_name: formData.business_name,
+            status: 'success'
+          });
+        }
+        
         setMessage({
           type: "success",
           text: `✅ Вашият QR Kit е генериран успешно!\n\n📧 Проверете имейла си на ${data.data.recipient || formData.email}\n\nПолучихте:\n• 📄 A5 плакат (готов за печат)\n• 📄 A4 лист с 9 карти за изрязване\n\nФайловете са изпратени на вашия email.`,
