@@ -15,7 +15,7 @@ const Hero = () => {
                 playsInline
                 preload="auto"
                 poster="https://otzivipro.b-cdn.net/logo/video-cover.png"
-                className="w-full h-full object-cover aspect-[4/3] lg:aspect-auto lg:min-h-[500px]"
+                className="w-full h-full object-cover aspect-[3/4] sm:aspect-[4/3] lg:aspect-auto lg:min-h-[500px]"
                 src="/videos/hero_360.mp4"
               />
             </div>
