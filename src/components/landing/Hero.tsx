@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="py-16 lg:py-20 px-4">
+    <section className="py-16 lg:py-20 px-4 bg-[#002A2A]">
       <div className="container mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-[55fr_45fr] gap-8 lg:gap-12 items-center">
           {/* Left Column - Video */}

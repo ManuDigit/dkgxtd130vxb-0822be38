@@ -39,7 +39,7 @@ const FounderMessage = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/30">
+    <section className="py-16 md:py-24 bg-[#002A2A]">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Video Column - Left */}
