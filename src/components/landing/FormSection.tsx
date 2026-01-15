@@ -67,9 +67,9 @@ const FormSection = () => {
       console.log("=== DIAGNOSTIC WEBHOOK ===");
       console.log("Payload object:", payload);
       console.log("JSON.stringify:", JSON.stringify(payload));
-      console.log("Sending to:", "https://n8n.otzivipro.bg/webhook/otzivipro-review");
+      console.log("Sending to:", "https://n8n.otzivipro.bg/webhook/otzivipro-review-card");
       
-      const response = await fetch("https://n8n.otzivipro.bg/webhook/otzivipro-review", {
+      const response = await fetch("https://n8n.otzivipro.bg/webhook/otzivipro-review-card", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
