@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header className="py-6 px-4">
+    <header className="py-6 px-4 bg-[#002A2A]">
       <div className="container mx-auto max-w-7xl">
         <div className="flex justify-center lg:justify-start">
           <a href="https://otzivipro.bg/" className="bg-white/90 backdrop-blur-md rounded-full px-6 py-2 inline-block">
