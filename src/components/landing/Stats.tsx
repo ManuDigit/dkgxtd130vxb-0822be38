@@ -78,7 +78,7 @@ const Stats = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 px-4">
+    <section ref={sectionRef} className="py-20 px-4 bg-[#002A2A]">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           {stats.map((stat, index) => (

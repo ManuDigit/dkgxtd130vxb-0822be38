@@ -171,7 +171,7 @@ const FormSection = () => {
   };
 
   return (
-    <section id="qr-demo-form" className="py-16 px-4">
+    <section id="qr-demo-form" className="py-16 px-4 bg-[#002A2A]">
       <div className="container mx-auto max-w-4xl">
         <div className="glass-card p-6 sm:p-8">
           {/* Title */}
