@@ -119,9 +119,9 @@
                 0 0 30px hsl(var(--glow-primary) / 0.15);
   }
 
-  /* Hero glass card with more opacity */
+  /* Hero glass card with glass effect */
   .glass-card-hero {
-    background: hsl(210 70% 6% / 0.82);
+    background: hsl(var(--glass-bg) / 0.04);
     border: 1px solid hsl(var(--glass-border) / 0.08);
     backdrop-filter: blur(18px);
     border-radius: 32px;
